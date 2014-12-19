@@ -1,11 +1,13 @@
-class Rotation
-	@@members = {}
+require_relative '../src/pair'
 
-	def self.members
-		@@members
+class Rotation
+	attr_accessor :pairs
+
+	def initialize 
+		@pairs = Array.new
 	end
 
-	def self.createAPair members
-		@@members = members
+	def createAPair member1,member2
+		@pairs.push(Pair.new member1,member2)
 	end
 end
