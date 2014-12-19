@@ -53,5 +53,18 @@ describe Rotation do
 			expect(result).to eq(-1)
 		end
 
+		it 'should not allow that a member already in a pair, participate to another pair' do
+			expectedMember1 = returnAMember "Matheus"
+			expectedMember2 = returnAMember "Thainan"
+			expectedMember3 = returnAMember "Edla"
+			
+			@rotation.createAPair expectedMember1,expectedMember2
+
+			result = @rotation.createAPair expectedMember1,expectedMember3
+
+			expect(result).to eq(-1)
+		end
+
+
 	end 
 end
