@@ -18,10 +18,7 @@ describe Rotation do
 			
 			iniatializeRotation
 
-			@rotation.addMember expectedMember1
-			@rotation.addMember expectedMember2
-
-			@rotation.createAPair "Matheus","Thainan"
+			@rotation.createAPair expectedMember1,expectedMember2
 
 			expect(expectedMember1).to eq(@rotation.pairs[0].member1)
 			expect(expectedMember2).to eq(@rotation.pairs[0].member2)
@@ -32,6 +29,8 @@ describe Rotation do
 			expectedMember2 = returnAMember "Thainan",DEV
 			expectedMember3 = returnAMember "Edla",QA
 			expectedMember4 = returnAMember "Naan",QA
+
+			iniatializeRotation
 
 			@rotation.createAPair(expectedMember1,expectedMember2)
 			@rotation.createAPair(expectedMember3,expectedMember4)
@@ -57,6 +56,8 @@ describe Rotation do
 			expectedMember2 = returnAMember "Thainan",DEV
 			expectedMember3 = returnAMember "Edla",QA
 			
+			iniatializeRotation
+
 			@rotation.createAPair expectedMember1,expectedMember2
 
 			result = @rotation.createAPair expectedMember1,expectedMember3

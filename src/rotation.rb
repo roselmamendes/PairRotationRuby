@@ -17,19 +17,16 @@ class Rotation
 		@members.push member
 	end
 
-	def createAPair memberName1,memberName2
+	def createAPair member1,member2
 		return NO_PROJECT_NAME if(@project.empty?)
-		return MEMBER_IN_PAIR if hasAPair(memberName1) != nil || hasAPair(memberName2) != nil
-		
-		member1 = members.bsearch{|memberToSearch| memberToSearch.name == memberName1}
-		member2 = members.bsearch{|memberToSearch| memberToSearch.name == memberName2}
+		return MEMBER_IN_PAIR if hasAPair(member1) != nil || hasAPair(member2) != nil
 
 		@pairs.push(Pair.new member1,member2)
 		SUCESS
 	end
 
-	def hasAPair memberName
-		result = pairs.bsearch{|pair| pair.member1.name == memberName || pair.member2.name == memberName}
+	def hasAPair member
+		result = pairs.bsearch{|pair| pair.member1.name == member.name || pair.member2.name == member.name}
 		return result if result != nil
 		nil
 	end
