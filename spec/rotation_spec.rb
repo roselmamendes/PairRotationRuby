@@ -62,7 +62,7 @@ describe Rotation do
 
 			result = @rotation.createAPair expectedMember1,expectedMember3
 
-			expect(result).to eq(-1)
+			expect(result).to eq(-2)
 		end
 
 

@@ -1,6 +1,7 @@
 require_relative '../src/pair'
 
-CAN_NOT_PROCEED = -1
+NO_PROJECT_NAME = -1
+MEMBER_IN_PAIR = -2
 SUCESS = 1
 
 class Rotation
@@ -12,20 +13,15 @@ class Rotation
 	end
 
 	def createAPair member1,member2
-		if(@project.empty?)
-			return CAN_NOT_PROCEED
-		elsif hasAPair(member1) != nil || hasAPair(member2) != nil
-			return CAN_NOT_PROCEED
-		end
+		return NO_PROJECT_NAME if(@project.empty?)
+		return MEMBER_IN_PAIR if hasAPair(member1) != nil || hasAPair(member2) != nil
 		
 		@pairs.push(Pair.new member1,member2)
 		SUCESS
 	end
 
 	def hasAPair(member)
-		result = pairs.bsearch{|pair| pair.member1.name == member.name}
-		return result if result != nil
-		result = pairs.bsearch{|pair| pair.member2.name == member.name}
+		result = pairs.bsearch{|pair| pair.member1.name == member.name || pair.member2.name == member.name}
 		return result if result != nil
 		nil
 	end
