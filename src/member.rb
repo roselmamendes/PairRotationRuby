@@ -1,8 +1,14 @@
+QA = "QA"
+DEV = "DEV"
+BA = "BA"
+UX = "UX"
+
 class Member
 
-	attr_accessor :name
+	attr_accessor :name,:role
 
-	def initialize name
+	def initialize name,role
 		@name = name
+		@role = role
 	end
 end
