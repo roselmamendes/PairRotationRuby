@@ -15,7 +15,6 @@ describe Rotation do
 		it 'should add a pair' do
 			expectedMember1 = returnAMember "Matheus"
 			expectedMember2 = returnAMember "Thainan"
-			pairs = [Pair.new(expectedMember1,expectedMember2)]
 			
 			@rotation.createAPair expectedMember1,expectedMember2
 
@@ -28,9 +27,6 @@ describe Rotation do
 			expectedMember2 = returnAMember "Thainan"
 			expectedMember3 = returnAMember "Edla"
 			expectedMember4 = returnAMember "Naan"
-
-			pairs = [Pair.new(expectedMember1,expectedMember2),
-				Pair.new(expectedMember3,expectedMember4)]
 
 			@rotation.createAPair(expectedMember1,expectedMember2)
 			@rotation.createAPair(expectedMember3,expectedMember4)
@@ -46,11 +42,9 @@ describe Rotation do
 			expectedMember2 = returnAMember "Thainan"
 			localRotation = Rotation.new
 
-			pairs = [Pair.new(expectedMember1,expectedMember2)]
-
 			result = localRotation.createAPair(expectedMember1,expectedMember2)
 
-			expect(result).to eq(-1)
+			expect(result).to eq(NO_PROJECT_NAME)
 		end
 
 		it 'should not allow that a member already in a pair, participate to another pair' do
@@ -62,7 +56,7 @@ describe Rotation do
 
 			result = @rotation.createAPair expectedMember1,expectedMember3
 
-			expect(result).to eq(-2)
+			expect(result).to eq(MEMBER_IN_PAIR)
 		end
 
 
